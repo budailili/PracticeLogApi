@@ -1,0 +1,44 @@
+@PracticeLogApi_HostAddress = https://localhost:7211
+
+### 1. Új gyakorlási tétel felvétele (POST)
+POST {{PracticeLogApi_HostAddress}}/practicesessions
+Content-Type: application/json
+
+{
+  "songTitle": "Bullet For My Valentine - Tears Don't Fall",
+  "tuning": "Drop C",
+  "targetBpm": 136,
+  "isMastered": false
+}
+
+### 2. Második tétel felvétele (POST)
+POST {{PracticeLogApi_HostAddress}}/practicesessions
+Content-Type: application/json
+
+{
+  "songTitle": "Linkin Park - Given Up",
+  "tuning": "Drop D",
+  "targetBpm": 100,
+  "isMastered": true
+}
+
+### 3. Összes tétel lekérdezése (GET)
+GET {{PracticeLogApi_HostAddress}}/practicesessions
+
+### 4. Csak a már megtanult (Mastered) dalok lekérdezése (GET)
+GET {{PracticeLogApi_HostAddress}}/practicesessions/mastered
+
+### 5. Egy adott tétel lekérdezése ID alapján (GET)
+GET {{PracticeLogApi_HostAddress}}/practicesessions/1
+
+### 6. Teljes tétel frissítése (PUT)
+PUT {{PracticeLogApi_HostAddress}}/practicesessions/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "songTitle": "Bullet For My Valentine - Tears Don't Fall (Intro + Solo)",
+  "tuning": "Drop C",
+  "targetBpm": 138,
+  "isMastered": false
+}
